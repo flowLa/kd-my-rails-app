@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'main/index'
-
-  get 'main/index'
-  
-  match ':controller(/:action)', via: [:get, :post, :patch]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
