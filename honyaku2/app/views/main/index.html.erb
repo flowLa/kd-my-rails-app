@@ -1,0 +1,25 @@
+<div class="container">
+<h1>シンプル翻訳</h1>
+<p>単語を翻訳するWebアプリ</a></p>
+
+<%= form_tag({controller: :main, action: :convert}) do %>
+  <div class="clearfix">
+    <div class="form-group">
+      <%= text_area_tag "input-markdown", @input_md, class: "form-control", rows: 6, placeholder: "ここに単語を入力..." %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag "ほんやく", class: "btn btn-primary btn-lg pull-right" %>
+    </div>
+  </div>
+<% end %>
+
+<%= form_tag({controller: :main, action: :convert}) do %>
+  <div class="form-group">
+    <%= label_tag "結果:" %>
+    <%= text_area_tag "output-pandoc", @output_pandoc, class: "form-control", rows: 6 %>
+  </div>
+
+<% end %>
+
+</div>
