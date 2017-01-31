@@ -1,10 +1,3 @@
-require "open3"
-
-def exec_pandoc(input, from)
-  output = "翻訳したやつ"
-  output
-end
-
 class MainController < ApplicationController
   def index
     @input_md = ''
@@ -12,9 +5,19 @@ class MainController < ApplicationController
   end
 
   def convert
+    en_to_ja = {
+      "fire" => "火"
+    }
+
     @input_md = params[:'input-markdown']
 
-    @output_pandoc = exec_pandoc(@input_md, 'markdown')
+    if @input_md.present?
+      @output_pandoc = @input_md.gsub(/\.*/, en_to_ja)
+    else
+      @output_pandoc = ""
+    end
+
+
     render action: :index
   end
 end
